@@ -62,7 +62,7 @@ fn select_symbol() -> (char, char) {
         } else if choice == "O"{
             return ('O', 'X'); 
         } else {
-            println!("That's not a valid choice! Make sure to remove any whitespaces if you added one!"); 
+            println!("That's not a valid choice! Make sure that it's literally X or O."); 
             continue; 
         }
     }
