@@ -45,7 +45,8 @@ fn check_winner(board: [char; 9]) -> bool {
     false 
 }
 
-fn get_symbol() -> (char, char) {
+fn select_symbol() -> (char, char) {
+    // Makes the player select a symbol 
     loop {
         println!("Wanna be X or O? Choose: "); 
         let mut choice = String::new(); 
@@ -68,6 +69,7 @@ fn get_symbol() -> (char, char) {
 }
 
 fn select_index() -> usize {
+    // Makes the player select an index. 
     loop {
         println!("Choose positions 1-9: "); 
         let mut index_input = String::new();
@@ -90,6 +92,7 @@ fn select_index() -> usize {
 }
 
 fn player_place_sym(board: &mut [char; 9], player_sym: char) {
+    // The player place symbol function. 
     loop {
         let board_index = select_index();
         if board[board_index] == ' ' {
@@ -103,6 +106,7 @@ fn player_place_sym(board: &mut [char; 9], player_sym: char) {
 }
 
 fn computer_place_sym(board: &mut [char;9], computer_sym: char) {
+    // The computer place symbol function 
     loop {
         let computer_index = rand::thread_rng().gen_range(0..=8); 
         if board[computer_index] == ' ' {
@@ -128,7 +132,7 @@ fn main() {
 
     let mut player_turn =  rand::thread_rng().gen_range(0..=1) != 0; 
     let mut board: [char; 9] = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']; 
-    let (player_sym, computer_sym) = get_symbol(); 
+    let (player_sym, computer_sym) = select_symbol(); 
 
     println!(""); 
 
